@@ -16,7 +16,9 @@ $ docker-compose up
 ```
 
 ## Curl for uplad file:
-`$ curl --location 'http://localhost:8080/api/promotion/upload' --header 'Content-Type: application/json'`
+```$ curl -X POST 'http://localhost:8080/api/promotion/upload' \
+--header 'Content-Type: application/json' \
+--form 'file=@"/home/user/promotions.csv"'```
 
 ## Curl for get one promotion:
-`$ curl --location 'http://localhost:8080/api/promotion/d018ef0b-dbd9-48f1-ac1a-eb4d90e57118' `
+`$ curl -X GET 'http://localhost:8080/api/promotion/d018ef0b-dbd9-48f1-ac1a-eb4d90e57118' `
