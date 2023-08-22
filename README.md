@@ -19,4 +19,4 @@ $ docker-compose up
 `$ curl --location 'http://localhost:8080/api/promotion/upload' --header 'Content-Type: application/json'`
 
 ## Curl for get one promotion:
-`$ curl --location 'http://localhost:8080/api/promotion/'`
+`$ curl --location 'http://localhost:8080/api/promotion/d018ef0b-dbd9-48f1-ac1a-eb4d90e57118' `
