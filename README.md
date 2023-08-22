@@ -1,7 +1,7 @@
 # storage
 upload huge data and response to huge access
 
-## How To Run This Project
+## How to run project:
 ```bash
 #move to directory
 $ cd workspace
@@ -15,8 +15,8 @@ $ cd storage
 $ docker-compose up
 ```
 
-## for request to upload promotion file use this curl:
+## Curl for uplad file:
 `$ curl --location 'http://localhost:8080/api/promotion/upload' --header 'Content-Type: application/json'`
 
-## for access to promotion by id, use this curl:
+## Curl for get one promotion:
 `$ curl --location 'http://localhost:8080/api/promotion/'`
