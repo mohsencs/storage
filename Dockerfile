@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.20 AS build
+FROM golang:1.21 AS build
 
 WORKDIR /app
 
@@ -9,14 +9,15 @@ RUN go mod download
 
 COPY . .
 
-RUN GOOS=linux go build -o /storage
+RUN CGO_ENABLED=0 GOOS=linux go build -o main
 
+#ENTRYPOINT ["./main"]
 FROM gcr.io/distroless/base-debian11
 
-WORKDIR /
+WORKDIR /src
 
-COPY --from=build /storage /storage
+COPY --from=build ./app .
 
-USER nonroot:nonroot
+#USER root:root
 
-ENTRYPOINT ["/storage"]
+ENTRYPOINT ["./main"]

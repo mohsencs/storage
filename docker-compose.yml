@@ -18,6 +18,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    environment:
+      MONGO_URI: mongodb://mongodb:27017
+      MONGO_DATABASE: storage
+      MONGO_COLLECTION: promotions
+      BULK_INSERT_MAX_SIZE: 100000
 
     restart: unless-stopped
     depends_on:

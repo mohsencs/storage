@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"storage/controller"
 	"storage/model"
 	"storage/repo"
@@ -13,9 +14,13 @@ import (
 )
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+	env := os.Getenv("MONGO_URI")
+	fmt.Printf(" ************ monto url is %v", env)
+	if env == "" {
+		err := godotenv.Load()
+		if err != nil {
+			log.Fatal("Error loading .env file")
+		}
 	}
 }
 
